@@ -19,7 +19,7 @@ class ItemListScreen extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushNamed(
                   EditUserScreen.routeName,
-                  arguments: userProfileProvider.username, // จะส่งไปด้วยก็ได้
+                  arguments: userProfileProvider.username,
                 );
               },
               child: Text(

@@ -18,10 +18,8 @@ class _EditUserScreenState extends State<EditUserScreen> {
   @override
   void initState() {
     super.initState();
-    // ดึงชื่อปัจจุบันจาก Provider มาใส่ใน TextField
-    final currentName = context
-        .read<UserProfileProvider>()
-        .username; // ไม่ต้อง listen
+
+    final currentName = context.read<UserProfileProvider>().username;
     _controller = TextEditingController(text: currentName);
   }
 
@@ -37,7 +35,6 @@ class _EditUserScreenState extends State<EditUserScreen> {
     final newName = _controller.text.trim();
     context.read<UserProfileProvider>().changeUsername(newName);
 
-    // แจ้งเตือนเบาๆ แล้วกลับหน้าเดิม
     ScaffoldMessenger.of(context);
     Navigator.of(context).pop(newName); // ส่งค่ากลับ
   }
